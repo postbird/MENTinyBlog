@@ -4,7 +4,6 @@
  * @description 服务 session Flash 的中间件
  * @author postbird
  * */
-
 function sessionFlash(req, res, next) {
     // console.log(req.session.flash);
     if(!req.session.flash) return next();
