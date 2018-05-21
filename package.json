@@ -1,0 +1,21 @@
+{
+  "name": "men-tiny-blog",
+  "version": "1.0.0",
+  "description": "基于 mongodb + express + nunjucks 开发的极简博客程序，仅供学习，不具备线上部署能力",
+  "main": "index.js",
+  "author": "postbird <ptbird@yeah.net> (http://www.ptbird.cn/)",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon app.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.3",
+    "dayjs": "^1.6.2",
+    "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "http-errors": "^1.6.3",
+    "mongoose": "^5.1.1",
+    "nunjucks": "^3.1.2"
+  }
+}

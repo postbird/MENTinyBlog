@@ -1,0 +1,43 @@
+{% extends '../base.njk' %}
+
+{% block title %} 编辑文章 {% endblock %}
+
+{% block stylesheets %}
+<style>
+    .page-title{
+        margin:30px 0;
+    }
+    .post-content{
+        min-height:300px;
+    }
+</style>
+{% endblock %}
+
+{% block main %}
+
+<div class="mdui-container">
+    <div class="mdui-row">
+        <div class="mdui-col-md-12">
+            <h3 class="page-title">编辑文章</h3>
+        </div>
+        <div class="mdui-col-md-12">
+            <form action="/admin/post/edit/{{ _id }}" method="post">
+                <div class="mdui-textfield ">
+                    <label class="mdui-textfield-label">文章标题</label>
+                    <input class="mdui-textfield-input" type="text" name="title" required value="{{ title }}"/>
+                </div>
+                <div class="mdui-textfield">
+                    <label class="mdui-textfield-label">文章内容</label>
+                    <textarea class="mdui-textfield-input post-content" name="content" rows="20" required >{{ content }}</textarea>
+                </div>
+                <div class="mdui-textfield">
+                    <button class="mdui-btn mdui-ripple mdui-color-blue-grey mdui-text-color-white-icon "  >发布文章</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %} {% endblock %}
