@@ -14,15 +14,15 @@ function getPostInfo(req,res,next){
     Post.findById(req.params.id).then((doc)=>{
         if(!doc){
             req.flash(false,'文章信息不存在');
-            return res.redirect('/admin/posts');
+            return res.redirect('/');
         }
         doc.content = markdown.toHTML(doc.content);
-        doc.description = markdown.toHTML(doc.description);
+        // doc.description = markdown.toHTML(doc.description);
         res.postInfo = doc;
         next();
     }).catch((err)=>{
         req.flash(false,'文章信息不存在');
-        return res.redirect('/admin/posts');
+        return res.redirect('/');
     });
 }
 // 计算分页的相关信息

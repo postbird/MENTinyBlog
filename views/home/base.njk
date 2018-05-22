@@ -7,7 +7,9 @@
     <title> {% block title %} 首页 {% endblock %} - men-tiny-blog</title>
     <link rel="stylesheet" href="/vendor/mdui/css/mdui.min.css">
     <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="/vendor/prism/prism.min.css">
     <script src="/vendor/mdui/js/mdui.min.js"></script>
+    <script src="/vendor/prism/prism.min.js"></script>
     <script src="/vendor/axios.min.js"></script>
     <style>
         body{
@@ -28,6 +30,9 @@
         }
         .header-link-container{
             margin-top: 20px;
+        }
+        .header-link-container a{
+            margin:5px 0;
         }
     </style>
     <script>
@@ -63,16 +68,16 @@
                 <div class="mdui-col-md-4">&nbsp;</div>
                 <div class="mdui-col-md-4">
                     <div class="mdui-col-md-3">
-                        <a href="/" class="mdui-btn mdui-color-blue-grey">首页</a>
+                        <a href="/" class="mdui-btn mdui-color-blue-grey mdui-btn-block">首页</a>
                     </div>
                     <div class="mdui-col-md-3">
-                        <a href="/admin" class="mdui-btn mdui-color-blue-grey">管理</a>
+                        <a href="/admin" class="mdui-btn mdui-color-blue-grey mdui-btn-block">管理</a>
                     </div>
                     <div class="mdui-col-md-3">
-                        <a href="https://github.com/postbird/MENTinyBlog"  target="_blank" class="mdui-btn mdui-color-blue-grey">Github</a>
+                        <a href="https://github.com/postbird/MENTinyBlog"  target="_blank" class="mdui-btn mdui-color-blue-grey mdui-btn-block">Github</a>
                     </div>
                     <div class="mdui-col-md-3">
-                        <a href="/" class="mdui-btn mdui-color-blue-grey">Gitosc</a>
+                        <a href="/" class="mdui-btn mdui-color-blue-grey mdui-btn-block">Gitosc</a>
                     </div>
                 </div>
                 <div class="mdui-col-md-4">&nbsp;</div>

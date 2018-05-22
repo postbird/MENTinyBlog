@@ -3,6 +3,7 @@
 {% block title %} {{ postInfo.title }} {% endblock %}
 
 {% block stylesheets %}
+    <script src="/vendor/markdown.min.js"></script>
     <style>
         .post-container{
             width: 100%;
@@ -19,8 +20,11 @@
             <div class="post-container">
                 <h1>{{ postInfo.title }}</h1>
                 <p class="mdui-text-color-grey">{{ postInfo.created_at | date}}</p>
-                <div>
-                    {{ postInfo.content  | safe}}
+                <div id="mdContent" style="display: none;">
+
+                </div>
+                <div id="markdown-content">
+                    {{ postInfo.content|safe }}
                 </div>
             </div>
         </div>
@@ -28,4 +32,8 @@
 </div>
 {% endblock %}
 
-{% block scripts %} {% endblock %}
+{% block scripts %}
+    <script>
+        // $$("#markdown-content").html(markdown.toHTML($$("#mdContent").html()));
+    </script>
+{% endblock %}
