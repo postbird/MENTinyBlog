@@ -67,5 +67,13 @@ yarn installBlog
 yarn dev
 ```
 
+### 四、效果
 
+![111](./examples/ex1.jpg)
+
+![111](./examples/ex2.jpg)
+
+![111](./examples/ex3.jpg)
+
+![111](./examples/ex4.jpg)
 
