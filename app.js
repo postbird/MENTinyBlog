@@ -4,13 +4,14 @@ const nunjucks = require('nunjucks');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const expressSession = require('express-session');
+const fileStore = require('session-file-store')(expressSession);
 const path = require('path');
 const adminRoutes = require('./routes/admin');
 const adminLoginRoutes = require('./routes/adminLogin');
 const initFilters = require('./helpers/nunjucksFilters');
 const flash = require('./helpers/flash');
 const sessionFlashMiddleware = require('./middlewares/admin/sessionFlash');
-
+const indexRoutes = require('./routes/index');
 const app = new express();
 
 
@@ -23,6 +24,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // session and cookie
 app.use(cookieParser());
 app.use(expressSession({
+    store:new fileStore({}),
     secret:'postbird',
     resave:false,
     saveUninitialized:false
@@ -43,9 +45,7 @@ app.set('view engine','njk');
 
 
 // routes
-app.get('/',(req,res)=>{
-    res.render('./home/index');
-});
+app.use('/',indexRoutes);
 // admin login router
 app.use('/admin/login',adminLoginRoutes);
 // admin router

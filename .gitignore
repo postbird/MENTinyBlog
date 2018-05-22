@@ -1,5 +1,6 @@
 /node_modules/*
 .idea/
 .vscode/
+/sessions/
 
 https://github.com/postbird/MENTinyBlog.git

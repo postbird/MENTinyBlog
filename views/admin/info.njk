@@ -1,0 +1,68 @@
+{% extends './base.njk' %}
+
+{% block title %} 用户信息 {% endblock %}
+
+{% block stylesheets %} {% endblock %}
+
+{% block main %}
+    <div class="mdui-container">
+        <div class="mdui-row">
+            <div class="mdui-col-md-12">
+                <h3 class="page-title">用户信息</h3>
+            </div>
+            <div class="mdui-col-md-6">
+                <form action="/admin/info" method="post">
+                    <div class="mdui-textfield">
+                        <label class="mdui-textfield-label">用户名</label>
+                        <input type="text" name="name" class="mdui-textfield-input" value="{{ info.name }}" required>
+                        <div class="mdui-textfield-helper">
+                            <span class="mdui-text-color-pink">修改用户名后需要使用新用户名登录</span>
+                        </div>
+                    </div>
+                    <div class="mdui-textfield">
+                        <label class="mdui-textfield-label">昵称</label>
+                        <input type="text" name="nickname" class="mdui-textfield-input" value="{{ info.nickname }}" >
+                    </div>
+                    <div class="mdui-textfield">
+                        <label class="mdui-textfield-label">网站</label>
+                        <input type="text" name="site" class="mdui-textfield-input" value="{{ info.site }}" >
+                    </div>
+                    <div class="mdui-textfield">
+                        <label class="mdui-textfield-label">邮箱</label>
+                        <input type="text" name="email" class="mdui-textfield-input" value="{{ info.email }}" >
+                    </div>
+                    <div class="mdui-textfield">
+                        <button type="submit" class="mdui-btn mdui-color-blue-grey mdui-ripple ">更新个人资料</button>
+                    </div>
+                </form>
+            </div>
+            <div class="mdui-col-md-2">&nbsp;</div>
+            <div class="mdui-col-md-4">
+                <form action="/admin/password" method="post">
+                    <div class="mdui-textfield">
+                        <label class="mdui-textfield-label">旧密码</label>
+                        <input type="password" name="oldpassword" class="mdui-textfield-input" >
+                        <div class="mdui-textfield-helper">
+                            <span class="mdui-text-color-pink">密码修改后需要重新登录</span>
+                        </div>
+                    </div>
+                    <div class="mdui-textfield">
+                        <label class="mdui-textfield-label">新密码</label>
+                        <input type="password" name="newpassword" class="mdui-textfield-input" >
+                    </div>
+                    <div class="mdui-textfield">
+                        <label class="mdui-textfield-label">确认新密码</label>
+                        <input type="password" name="checkpassword" class="mdui-textfield-input" >
+                    </div>
+                    <div class="mdui-textfield mdui-text-right">
+                        <button type="submit" class="mdui-btn mdui-color-pink mdui-ripple ">修改密码</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+{% block scripts %} {% endblock %}

@@ -1,2 +1,83 @@
 {% extends './base.njk' %}
 
+{% block title %} 首页 {% endblock %}
+
+{% block stylesheets %}
+    <style>
+        .page-title{
+            margin:30px 0;
+        }
+        .number-font{
+            color: #444;
+            font-size: 2em;
+            font-style: normal;
+            font-family: Georgia, serif;
+        }
+        .index-top-content{
+            font-size: 1.15em;
+            color:#999;
+            letter-spacing: 1px;
+        }
+        .mdui-divider{
+            margin: 50px 0;
+        }
+        .dashboard-container ul{
+            list-style: none;
+            padding:0;
+        }
+        .dashboard-container li {
+            margin-bottom:10px;
+        }
+        .latest-link li {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .latest-link span {
+            display: inline-block;
+            margin-right: 4px;
+            padding-right: 8px;
+            border-right: 1px solid #ECECEC;
+            width: 37px;
+            text-align: right;
+            color: #999;
+        }
+        .latest-link a{
+            text-decoration: none;
+            color:#467B96;
+        }
+    </style>
+{% endblock %}
+
+{% block main %}
+
+    <div class="mdui-container">
+        <div class="mdui-row">
+            <div class="mdui-col-md-12">
+                <h3 class="page-title">网站概要</h3>
+            </div>
+            <div class="mdui-col-md-12">
+                <p class="index-top-content">
+                    当前已经发布 <span class="number-font">{{ postCount }}</span> 篇文章
+                </p>
+                <div class="mdui-divider"></div>
+            </div>
+            <div class="mdui-col-md-4">
+                <h3>最新发布的文章</h3>
+                <div class="mdui-col-md-12 dashboard-container">
+                    <ul class="latest-link">
+                        {% for item in latestPost %}
+                            <li>
+                                <span>{{ item.created_at | shotDate }}</span>
+                                <a href="">{{ item.title }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block scripts %} {% endblock %}

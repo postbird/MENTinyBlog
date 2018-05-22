@@ -10,6 +10,12 @@ const initFilters = (env)=>{
     env.addFilter('date',(str)=>{
         return dayjs(str).format("YYYY-MM-DD HH:mm:ss");
     });
+    env.addFilter('shotDate',(str)=>{
+        return dayjs(str).format("MM.DD");
+    });
+    env.addFilter('number',(str)=>{
+        return Number.parseInt(str);
+    })
 };
 
 module.exports = initFilters;

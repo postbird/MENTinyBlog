@@ -1,0 +1,31 @@
+{% extends './base.njk' %}
+
+{% block title %} {{ postInfo.title }} {% endblock %}
+
+{% block stylesheets %}
+    <style>
+        .post-container{
+            width: 100%;
+            background-color: #ffffff;
+            padding:50px;
+        }
+    </style>
+{% endblock %}
+
+{% block main %}
+<div class="mdui-container">
+    <div class="mdui-row">
+        <div class="mdui-col-md-12">
+            <div class="post-container">
+                <h1>{{ postInfo.title }}</h1>
+                <p class="mdui-text-color-grey">{{ postInfo.created_at | date}}</p>
+                <div>
+                    {{ postInfo.content  | safe}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %} {% endblock %}

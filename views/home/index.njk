@@ -1,1 +1,65 @@
-<h1>默认首页</h1>
+{% extends './base.njk' %}
+
+{% block title %} 首页 {% endblock %}
+
+{% block stylesheets %}
+    <style>
+        .post-container{
+        }
+        .post-item-container{
+            height: 100px;
+            background-color: #ffffff;
+            margin: 20px 0;
+            padding:2% 20px 1% 20px;
+
+        }
+        .post-item-container a{
+            font-size: 1.8em;
+        }
+        .post-item-time{
+            font-size: .9em;
+            color:#aaaaaa;
+        }
+    </style>
+{% endblock %}
+
+{% block main %}
+<div class="mdui-container">
+    <div class="mdui-row">
+        <div class="mdui-col-md-12 post-container">
+            {% for item in list %}
+                <div class="post-item-container mdui-text-center">
+                    <a href="/post/{{ item._id }}" class="mdui-text-color-blue-grey">{{ item.title }}</a>
+                    <p>
+                        {{ item.description }}
+                    </p>
+                    <p class="post-item-time">
+                        发布时间：{{ item.created_at | date }}
+                    </p>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="mdui-col-md-12">
+            <div class="mdui-btn-group">
+                {% if paginateInfo.page != 1 %}
+                <a href="/?page={{ paginateInfo.page | number - 1 }}" class="mdui-btn mdui-color-blue-grey mdui-btn-icon" >
+                {% else %}
+                <a href="javascript:void(0)" class="mdui-btn mdui-color-blue-grey mdui-btn-icon" >
+                    {% endif %}
+                    <i class="mdui-icon material-icons">keyboard_arrow_left</i>
+                </a>
+                <span  class="mdui-btn mdui-color-blue-grey">{{ paginateInfo.page }} / {{ paginateInfo.count }}</span>
+                {% if paginateInfo.page != paginateInfo.count %}
+                <a href="/?page={{ paginateInfo.page | number + 1 }}" class="mdui-btn mdui-color-blue-grey mdui-btn-icon">
+                    {% else %}
+                <a href="javascript:void(0)" class="mdui-btn mdui-color-blue-grey mdui-btn-icon" >
+                    {% endif %}
+                     <i class="mdui-icon material-icons">keyboard_arrow_right</i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %} {% endblock %}

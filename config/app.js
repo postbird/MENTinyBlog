@@ -6,5 +6,5 @@
  */
 module.exports = {
   hmacKey:'postbird!@#123',
-
+  paginate:5
 };

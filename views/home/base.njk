@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> {% block title %} 首页 {% endblock %} - men-tiny-blog</title>
+    <link rel="stylesheet" href="/vendor/mdui/css/mdui.min.css">
+    <link rel="stylesheet" href="/css/admin.css">
+    <script src="/vendor/mdui/js/mdui.min.js"></script>
+    <script src="/vendor/axios.min.js"></script>
+    <style>
+        body{
+            background-color: #F6F6F3;
+        }
+        header{
+            background-color: #ffffff;
+            min-height: 250px;
+            width: 100%;
+            margin-bottom: 50px;
+            padding-top: 40px;
+        }
+        .page-title{
+            margin-bottom: 10px;
+        }
+        a{
+            text-decoration: none;
+        }
+        .header-link-container{
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function showSnacbar(type,msg){
+            mdui.snackbar({
+                message: msg,
+                position:'right-top'
+            });
+        }
+    </script>
+    {% block stylesheets %} {% endblock %}
+</head>
+<body>
+<!--[if lt IE 9]>
+<div class="message error browsehappy" role="dialog">当前网页 <strong>不支持</strong> 你正在使用的浏览器. 为了正常的访问, 请 <a href="http://browsehappy.com/">升级你的浏览器</a>.</div>
+<![endif]-->
+{% if errStatus %}
+    <script>
+        showSnacbar({{ errType }},"{{ errMsg }}");
+    </script>
+{% endif %}
+<header>
+    <div class="container mdui-text-center">
+        <div class="row">
+            <div class="mdui-col-md-12">
+                <h1 class="page-title mdui-text-color-blue-grey">MEN Tiny Blog</h1>
+            </div>
+            <div class="mdui-col-md-12">
+                <p style="font-size: 20px;">基于 Mongodb + Express4.X + Nunjucks 构建的极简博客系统示例</p>
+                <p style="font-size: 16px;" class="mdui-text-color-grey">请注意，本系统仅用于代码学习，不具备线上部署能力。</p>
+            </div>
+            <div class="mdui-col-md-12 header-link-container">
+                <div class="mdui-col-md-4">&nbsp;</div>
+                <div class="mdui-col-md-4">
+                    <div class="mdui-col-md-3">
+                        <a href="/" class="mdui-btn mdui-color-blue-grey">首页</a>
+                    </div>
+                    <div class="mdui-col-md-3">
+                        <a href="/admin" class="mdui-btn mdui-color-blue-grey">管理</a>
+                    </div>
+                    <div class="mdui-col-md-3">
+                        <a href="https://github.com/postbird/MENTinyBlog"  target="_blank" class="mdui-btn mdui-color-blue-grey">Github</a>
+                    </div>
+                    <div class="mdui-col-md-3">
+                        <a href="/" class="mdui-btn mdui-color-blue-grey">Gitosc</a>
+                    </div>
+                </div>
+                <div class="mdui-col-md-4">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="main">
+    {% block main %}
+    {% endblock %}
+</div>
+<footer>
+    <div class="mdui-text-center" style="color: #aaaaaa;padding: 50px;">
+        由 MEN Tiny Blog 驱动 [ v0.0.1 ]，Powered by <a href="http://www.ptbird.cn" target="_blank" class="mdui-text-color-blue-grey">Postbird</a>
+    </div>
+</footer>
+</body>
+
+<script>
+    const $$ = mdui.JQ;
+    $$(document).ready(()=>{
+        mdui.mutation();
+    });
+</script>
+{% block scripts %} {% endblock %}
+</html>

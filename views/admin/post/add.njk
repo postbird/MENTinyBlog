@@ -3,14 +3,17 @@
 {% block title %} 撰写文章 {% endblock %}
 
 {% block stylesheets %}
-<style>
-    .page-title{
-        margin:30px 0;
-    }
-    .post-content{
-        min-height:300px;
-    }
-</style>
+    <link rel="stylesheet" href="/vendor/simplemde/simplemde.min.css">
+    <script src="/vendor/simplemde/simplemde.min.js"></script>
+    <style>
+
+        .post-content{
+            min-height:300px;
+        }
+        .CodeMirror, .CodeMirror-scroll {
+            min-height: 400px;
+        }
+    </style>
 {% endblock %}
 
 {% block main %}
@@ -21,17 +24,17 @@
             <h3 class="page-title">撰写新文章</h3>
         </div>
         <div class="mdui-col-md-12">
-            <form action="/admin/post/add" method="post">
+            <form action="/admin/post/add" method="post" id="editForm">
                 <div class="mdui-textfield ">
                     <label class="mdui-textfield-label">文章标题</label>
                     <input class="mdui-textfield-input" type="text" name="title" required/>
                 </div>
                 <div class="mdui-textfield">
                     <label class="mdui-textfield-label">文章内容</label>
-                    <textarea class="mdui-textfield-input post-content" name="content" rows="20" required></textarea>
+                    <textarea class="mdui-textfield-input post-content" name="content" rows="20" required id="simplemde"></textarea>
                 </div>
                 <div class="mdui-textfield">
-                    <button class="mdui-btn mdui-ripple mdui-color-blue-grey mdui-text-color-white-icon "  >发布文章</button>
+                    <button type=button class="mdui-btn mdui-ripple mdui-color-blue-grey mdui-text-color-white-icon " onclick="beforeSubmit()"  >发布文章</button>
                 </div>
             </form>
         </div>
@@ -40,4 +43,14 @@
 
 {% endblock %}
 
-{% block scripts %} {% endblock %}
+{% block scripts %}
+    <script>
+        const textareaInput = $$('#simplemde');
+        var simplemde = new SimpleMDE({ element: textareaInput[0]});
+        function beforeSubmit(){
+            textareaInput.val(simplemde.value());
+            $$("#editForm")[0].submit();
+        }
+    </script>
+{% endblock %}
+

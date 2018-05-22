@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title> {% block title %} 首页 {% endblock %} - men-tiny-blog 管理</title>
     <link rel="stylesheet" href="/vendor/mdui/css/mdui.min.css">
+    <link rel="stylesheet" href="/css/admin.css">
     <script src="/vendor/mdui/js/mdui.min.js"></script>
     <script src="/vendor/axios.min.js"></script>
     <style>
@@ -38,14 +39,13 @@
 <header>
     <div class="mdui-appbar">
         <div class="mdui-toolbar mdui-color-blue-grey">
-            <a href="javascript:void(0);" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">menu</i></a>
             <a href="javascript:void(0);" class="mdui-typo-headline">MENTiny</a>
             <a href="/admin" class="mdui-typo-title">首页</a>
             <a href="/admin/post/add" class="mdui-typo-title">撰写</a>
             <a href="/admin/posts" class="mdui-typo-title">文章</a>
             <div class="mdui-toolbar-spacer"></div>
-            <a href="javascript:void(0);" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">perm_identity</i></a>
-            <a href="javascript:void(0);" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">power_settings_new</i></a>
+            <a href="/admin/info" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">perm_identity</i></a>
+            <a href="/admin/login/logout" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">power_settings_new</i></a>
         </div>
     </div>
 </header>
@@ -54,8 +54,8 @@
     {% endblock %}
 </div>
 <footer>
-    <div class="mdui-text-center" style="color: #aaaaaa;padding-top: 50px;">
-        由 MEN Tiny Blog 驱动
+    <div class="mdui-text-center" style="color: #aaaaaa;padding: 50px;">
+        由 MEN Tiny Blog 驱动 [ v0.0.1 ]，Powered by <a href="http://www.ptbird.cn" target="_blank" class="mdui-text-color-blue-grey">Postbird</a>
     </div>
 </footer>
 </body>
