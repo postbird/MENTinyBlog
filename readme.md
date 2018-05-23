@@ -5,6 +5,7 @@
 ### 一、介绍
 
 MEN Tiny Blog 是基于 `mongodb` + `express4.x` + `nunjucks` 开发的博客系统。
+> 本系统不具备上线能力，仅用于 Express4.X + mongodb 代码学习和练手
 
 ### 二、安装
 
@@ -77,3 +78,7 @@ yarn dev
 
 ![111](./examples/ex4.jpg)
 
+
+### 五、LICENSE
+
+MIT
