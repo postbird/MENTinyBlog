@@ -7,6 +7,10 @@
 MEN Tiny Blog 是基于 `mongodb` + `express4.x` + `nunjucks` 开发的博客系统。
 > 本系统不具备上线能力，仅用于 Express4.X + mongodb 代码学习和练手
 
+在线demo：
+
+- [http://69.171.74.107:3000/](http://69.171.74.107:3000/)
+
 ### 二、安装
 
 #### 克隆项目
