@@ -9,7 +9,7 @@ MEN Tiny Blog 是基于 `mongodb` + `express4.x` + `nunjucks` 开发的博客系
 
 在线demo：
 
-- [http://69.171.74.107:3000/](http://69.171.74.107:3000/)
+- [http://mentinyblog.ptbird.cn:3000/](http://mentinyblog.ptbird.cn:3000/)
 
 ### 二、安装
 
